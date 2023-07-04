@@ -13,21 +13,10 @@ def raw_data_to_df(url):
   df = pd.json_normalize(data)
   return df
 
-class statsbomb:
-
-  def competitions():
-    return raw_data_to_df("https://raw.githubusercontent.com/statsbomb/open-data/master/data/competitions.json")
-
-  def matches(competition_id, season_id):
-    link = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/" + str(competition_id) + "/" + str(season_id) + ".json"
-    return raw_data_to_df(link)
-
-  def events(match_id):
-    link = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/" + str(match_id) + ".json"
-    return raw_data_to_df(link)
 
 # Retrive the table with all matches listed
-df_matches =  statsbomb.matches(43,106)
+link = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/43/106.json"
+df_matches = raw_data_to_df(link)
 
 # Find all teasm involved in competition
 home_teams, away_teams, all_teams = all_teams_finder(df_matches)
