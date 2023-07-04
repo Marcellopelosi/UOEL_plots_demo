@@ -21,7 +21,7 @@ df_matches_with_selected_team_id = selected_team_matches_id(selected_team, home_
 all_shots_df = all_shots(df_matches_with_selected_team_id, selected_team)
 
 # All selectable players list
-all_selectable_players = np.sort(all_shots_df["player.name"].unique())
+all_selectable_players = all_shots_df["player.name"].unique()
 
 # Allow user to select player
 selected_player = "Edinson Roberto Cavani Gómez"
