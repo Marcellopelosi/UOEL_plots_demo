@@ -53,7 +53,7 @@ def find_defending_team(teams_involved, attacking_team):
   return t[0]
 
 
-def all_shots(df_matches_with_selected_team_id):
+def all_shots(df_matches_with_selected_team_id, selected_team):
 
   all_shots = []
   for m in df_matches_with_selected_team_id:
