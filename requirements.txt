@@ -2,3 +2,6 @@ pandas
 requests
 numpy
 streamlit
+panel
+plotly
+PIL
