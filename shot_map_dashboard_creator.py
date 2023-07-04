@@ -26,10 +26,10 @@ def shot_dashboard(player, squad, df, background_image_path = "./football pitch.
   scatterplot.update_yaxes(title='')
   
   scatterplot.update_layout(
-      xaxis_range=[0, 105],
-      yaxis_range=[0, 68],
-      width=105*8,
-      height=68*8,
+      xaxis_range=[0, 120],
+      yaxis_range=[0, 80],
+      width=120*8,
+      height=80*8,
       xaxis=dict(showgrid=False),
       yaxis=dict(showgrid=False),
       plot_bgcolor="rgba(0, 0, 0, 0)"
@@ -43,8 +43,8 @@ def shot_dashboard(player, squad, df, background_image_path = "./football pitch.
               yref="y",
               x=0,
               y=68,
-              sizex=105,
-              sizey=68,
+              sizex=120,
+              sizey=80,
               sizing="stretch",
               opacity=0.5,
               layer="below")
