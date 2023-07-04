@@ -32,7 +32,9 @@ st.title("File Downloader")
 if st.button("Download Dashboard"):
   dashboard = shot_dashboard(selected_player, selected_team, all_shots_df, background_image_path = "./football pitch.png")
   dashboard.save('dashboard.html')
-  st.download_button("Click to download", file_name='dashboard.html')
+   with open(dashboard.html, 'r') as file:
+      html_content = file.read()
+  st.download_button("Click to download", html_content)
 
 
 
