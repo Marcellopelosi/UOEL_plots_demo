@@ -3,6 +3,7 @@ from find_all_matches import find_all_matches
 from shot_map_dashboard_creator import shot_dashboard
 import streamlit as st
 import numpy as np
+import base64
 
 
 # Find all matches details in df format
@@ -26,15 +27,25 @@ all_selectable_players = np.sort(all_shots_df["player.name"].unique())
 # Allow user to select player
 selected_player = "Edinson Roberto Cavani Gómez"
 
+# Function to create a download link for the HTML file
+def download_html_file(html_content, filename):
+    b64 = base64.b64encode(html_content.encode()).decode()
+    href = f'<a href="data:text/html;base64,{b64}" download="{filename}">Click here to download</a>'
+    return href
+
+
 st.title("File Downloader")
 
-# Button to download file
-if st.button("Download Dashboard"):
-  dashboard = shot_dashboard(selected_player, selected_team, all_shots_df, background_image_path = "./football pitch.png")
-  dashboard.save('dashboard.html')
-  with open("dashboard.html", 'r') as file:
-    html_content = file.read()
-  st.download_button("Click to download", html_content)
+dashboard = shot_dashboard(selected_player, selected_team, all_shots_df, background_image_path = "./football pitch.png")
+dashboard.save('dashboard.html')
+with open("dashboard.html", 'r') as file:
+  html_content = file.read()
+
+# Create a download link for the HTML file
+download_link = download_html_file(html_content, 'dashboard')
+
+# Display the download link
+st.markdown(download_link, unsafe_allow_html=True)
 
 
 
