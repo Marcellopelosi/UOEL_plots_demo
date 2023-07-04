@@ -6,7 +6,7 @@ import numpy as np
 import base64
 
 
-st.title("Dashboard Creator (WC 2023 shot demo version)")
+st.title("Dashboard Creator (WC 2023 shot map demo version)")
 
 # Find all matches details in df format
 df_matches = find_all_matches()
