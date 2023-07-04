@@ -6,7 +6,7 @@ import numpy as np
 import base64
 
 
-st.title("Dashboard Creator")
+st.title("Dashboard Creator (WC 2023 shot demo version)")
 
 # Find all matches details in df format
 df_matches = find_all_matches()
@@ -39,8 +39,10 @@ if st.button("Create Dashboard"):
       html_content = file.read()
         
     b64 = base64.b64encode(html_content.encode()).decode()
-        
-    st.download_button("Download Dashboard", b64)
+    href = f'<a href="data:text/html;base64,{b64}" download="{filename}">Click here to download</a>'
+
+    st.markdown(download_link, unsafe_allow_html=True)
+
 
     
 
