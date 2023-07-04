@@ -21,5 +21,5 @@ class statsbomb:
     link = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/" + str(match_id) + ".json"
     return raw_data_to_df(link)
 
-def world_cup_matches():
+def find_all_matches():
   return statsbomb.matches(43,106)
