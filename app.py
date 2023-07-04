@@ -15,7 +15,7 @@ df_matches = find_all_matches()
 home_teams, away_teams, all_teams = all_teams_finder(df_matches)
 
 # Allow user to select team
-selected_team = "Uruguay"
+selected_team = st.selectbox('Select a team', all_teams)
 
 # Find matches id in which selected team plays
 df_matches_with_selected_team_id = selected_team_matches_id(selected_team, home_teams, away_teams, df_matches)
@@ -27,7 +27,7 @@ all_shots_df = all_shots(df_matches_with_selected_team_id, selected_team)
 all_selectable_players = np.sort(all_shots_df["player.name"].unique())
 
 # Allow user to select player
-selected_player = "Edinson Roberto Cavani Gómez"
+selected_player = st.selectbox('Select a player', all_selectable_players)
 
 # Function to create a download link for the HTML file
 def download_html_file(html_content, filename):
