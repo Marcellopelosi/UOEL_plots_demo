@@ -2,21 +2,10 @@ from feature_eng import all_teams_finder, selected_team_matches_id, all_shots
 from find_all_matches import find_all_matches
 from shot_map_dashboard_creator import shot_dashboard
 import streamlit as st
-import pandas as pd
-import requests
-import numpy as np
 
 
-def raw_data_to_df(url):
-  f = requests.get(url)
-  data = f.json()
-  df = pd.json_normalize(data)
-  return df
-
-
-# Retrive the table with all matches listed
-link = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/matches/43/106.json"
-df_matches = raw_data_to_df(link)
+# Find all matches details in df format
+df_matches = find_all_matches()
 
 # Find all teasm involved in competition
 home_teams, away_teams, all_teams = all_teams_finder(df_matches)
