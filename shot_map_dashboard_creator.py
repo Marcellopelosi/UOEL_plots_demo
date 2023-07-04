@@ -9,7 +9,13 @@ def shot_dashboard(player, squad, df, background_image_path = "./football pitch.
   pitch = Image.open(background_image_path)
   
   # Create scatterplot
-  scatterplot = px.scatter(df, x='x_loc', y='y_loc', color='shot outcome')
+  scatterplot = px.scatter(df, x='x_loc', y='y_loc', color='shot outcome',
+  color_discrete_map={'Saved': 'yellow',
+ 'Off T': 'purple',
+ 'Post': 'white',
+ 'Blocked': 'red',
+ 'Wayward': 'black',
+ 'Goal': 'green'})
   
   
   scatterplot.update_xaxes(showticklabels=False)
