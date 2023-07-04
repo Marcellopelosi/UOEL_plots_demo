@@ -9,7 +9,8 @@ def shot_dashboard(player, squad, df, background_image_path = "./football pitch.
   pitch = Image.open(background_image_path)
   
   # Create scatterplot
-  scatterplot = px.scatter(df, x='x_loc', y='y_loc', color='shot_outcome')
+  scatterplot = px.scatter(df, x='x_loc', y='y_loc', color='shot outcome')
+  
   
   scatterplot.update_xaxes(showticklabels=False)
   scatterplot.update_yaxes(showticklabels=False)
@@ -44,10 +45,10 @@ def shot_dashboard(player, squad, df, background_image_path = "./football pitch.
   )
   
   # Create table
-  table = pn.widgets.DataFrame(df)
+  table = pn.widgets.DataFrame(df[['period', 'minute', 'second', 'shot outcome','body part', 'type of shot',  'squad against']])
   
   # Create a title panel
-  title_panel = pn.pane.Markdown(f'{player} shot map vs {squad}', style={'font-size': '20px', 'font-weight': 'bold'})
+  title_panel = pn.pane.Markdown(f'{player} shot map with {squad} in 2022 WC', style={'font-size': '20px', 'font-weight': 'bold'})
   
   # Align center
   spacer = pn.Spacer()  # Create a spacer to center-align
