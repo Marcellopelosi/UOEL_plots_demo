@@ -51,6 +51,7 @@ def shot_dashboard(player, squad, df, background_image_path = "./football pitch.
   )
   
   # Create table
+  df = df[['period', 'minute', 'second', 'shot outcome','body part', 'type of shot',  'squad against']].reset_index(drop = True)
   table = pn.widgets.DataFrame(df[['period', 'minute', 'second', 'shot outcome','body part', 'type of shot',  'squad against']])
   
   # Create a title panel
