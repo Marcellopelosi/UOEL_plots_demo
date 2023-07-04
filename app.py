@@ -23,6 +23,8 @@ class statsbomb:
     link = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/" + str(match_id) + ".json"
     return raw_data_to_df(link)
 
+def find_all_matches():
+  return statsbomb.matches(43,106)
 
 # Retrive the table with all matches listed
 df_matches = find_all_matches() 
