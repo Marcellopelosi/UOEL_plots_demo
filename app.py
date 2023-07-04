@@ -6,6 +6,8 @@ import numpy as np
 import base64
 
 
+st.title("Dashboard Creator")
+
 # Find all matches details in df format
 df_matches = find_all_matches()
 
@@ -34,8 +36,6 @@ def download_html_file(html_content, filename):
     return href
 
 
-st.title("File Downloader")
-
 dashboard = shot_dashboard(selected_player, selected_team, all_shots_df, background_image_path = "./football pitch.png")
 dashboard.save('dashboard.html')
 with open("dashboard.html", 'r') as file:
@@ -46,8 +46,6 @@ download_link = download_html_file(html_content, 'dashboard')
 
 # Display the download link
 st.markdown(download_link, unsafe_allow_html=True)
-
-
 
 
 
