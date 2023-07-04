@@ -41,7 +41,7 @@ if st.button("Create Dashboard"):
     b64 = base64.b64encode(html_content.encode()).decode()
     href = f'<a href="data:text/html;base64,{b64}" download="desidered dashboard">Click here to download</a>'
 
-    st.markdown(download_link, unsafe_allow_html=True)
+    st.markdown(href, unsafe_allow_html=True)
 
 
     
