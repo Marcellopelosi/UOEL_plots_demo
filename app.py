@@ -30,7 +30,7 @@ st.title("File Downloader")
 
 # Button to download file
 if st.button("Download Dashboard"):
-  dashboard = shot_dashboard(player, squad, df, background_image_path = "./football pitch.png")
+  dashboard = shot_dashboard(selected_player, selected_team, all_shots_df, background_image_path = "./football pitch.png")
   dashboard.save('dashboard.html')
   st.download_button("Click to download", file_name='dashboard.html')
 
