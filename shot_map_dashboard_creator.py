@@ -3,7 +3,7 @@ import panel as pn
 import plotly.express as px
 from PIL import Image
 
-def shot_dashboard(player, squad, df, background_image_path = "./football pitch.png"):
+def shot_dashboard(player, squad, df, background_image_path = "./pitch_120_180.png"):
 
   #Load background image path
   pitch = Image.open(background_image_path)
