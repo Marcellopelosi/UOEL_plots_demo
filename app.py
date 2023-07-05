@@ -21,7 +21,7 @@ selected_team = st.selectbox('Select a team', all_teams)
 df_matches_with_selected_team_id = selected_team_matches_id(selected_team, home_teams, away_teams, df_matches)
 
 # Dataframe with all the shots, according to selected parameters
-all_shots_df = all_shots(df_matches_with_selected_team_id, selected_team, selected_player)
+all_shots_df = all_shots(df_matches_with_selected_team_id, selected_team)
 
 # All selectable players list
 all_selectable_players = np.sort(all_shots_df["player.name"].unique())
