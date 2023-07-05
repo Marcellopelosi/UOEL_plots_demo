@@ -53,7 +53,7 @@ def find_defending_team(teams_involved, attacking_team):
   return t[0]
 
 
-def all_shots(df_matches_with_selected_team_id, selected_team):
+def all_shots(df_matches_with_selected_team_id, selected_team, selected_player):
 
   all_shots = []
   for m in df_matches_with_selected_team_id:
@@ -64,7 +64,8 @@ def all_shots(df_matches_with_selected_team_id, selected_team):
     df["x_loc"] = df["location"].apply(lambda x: x[0])
     df["y_loc"] = df["location"].apply(lambda x: x[1])
     df = df[df["team.name"] == selected_team]
-    df = df.drop(columns = ["team.name", "location"])
+    df = df[df["player.name"] == selected_player]
+    df = df.drop(columns = ["team.name", "location", "player.name"])
     df.columns = ['period', 'minute', 'second', 'player.name', 'body part',
         'type of shot', 'shot outcome', 'squad against', 'x_loc',
         'y_loc']
