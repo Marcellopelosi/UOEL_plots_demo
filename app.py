@@ -32,7 +32,7 @@ selected_player = st.selectbox('Select a player', all_selectable_players)
     
 if st.button("Create Dashboard"):
 
-    dashboard = shot_dashboard(selected_player, selected_team, all_shots_df)
+    dashboard = shot_dashboard(selected_player, selected_team, all_shots_df[all_shots_df["player.name"] ==selected_player] )
     dashboard.save('dashboard.html')
     
     with open("dashboard.html", 'r') as file:
